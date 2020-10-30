@@ -112,6 +112,17 @@ p {
 /********************
 * partners
 *********************/
+.partner-list li {
+    flex-grow: 1;
+    text-align: center;
+    width: 100%;
+
+}
+
+.partner-list li a {
+    display: block;
+}
+
 
 .partners{
 	position: inherit;
@@ -121,7 +132,6 @@ p {
 .partners img {
 	width: 160px;
 	height: 160px;
-	margin-right: 50px;
 }
 
 .partners a{
@@ -132,8 +142,8 @@ p {
 .partners h6{
 	font-weight: bold;
 	color: navy;
-	font-size: 10px;
-	margin-right: 50px;
+	font-size: .6rem;
+	/* margin-right: 50px; */
 }
 
 .white_round {
@@ -300,10 +310,25 @@ h4, h5, h6 {
 /********************
 * forms
 *********************/
-input.form-control {
+/* input.form-control {
     height: 45px !important;
-}
+} */
 
+
+/* navbar on small screens */
+@media screen and (max-width: 650px) {
+    #navbar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        z-index: 10000;
+    }
+
+    .burger {
+        z-index: 999999;
+    }
+}
 
 
 

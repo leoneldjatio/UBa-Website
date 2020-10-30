@@ -172,8 +172,8 @@
                     </div>
                     <div class="card-footer text-center">
                         <!-- <ul class="pagination">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                <li class>1</li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                            </ul> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <li class>1</li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </ul> -->
                         <a href="#" class="btn btn-success btn-sm">Load more</a>
                     </div>
                 </div>
@@ -270,41 +270,47 @@
     <section class="partners container white_round shadow-custom">
         <h2 class="title text-dark font-weight-bold text-center my-5">Our Partners &amp <span
                 class="text-primary">Affiliates</span></h2>
-        <ul class="partner-list list-unstyled d-flex flex-column flex-md-row justify-content-center">
+        <ul class="partner-list list-unstyled d-flex flex-column flex-md-row justify-content-center align-items-start">
             <li>
                 <a href="http://www.uy1.uninet.cm" target="_blank">
-                    <img src="{{ asset('images/uylogo.png') }}" alt="partners" class="img-thumbnail img-fluid"><br><br>
-                    <h6>THE UNIVERSITY<br>OF<br>YAOUNDE 1</h6>
+                    <img src="{{ asset('images/uylogo.png') }}" alt="partners"
+                        class="img-thumbnail img-fluid mb-2 img-fluid">
+                    <h6 class="text-center font-weight-bold text-primary text-uppercase">University of Yaounde 1</h6>
                 </a>
             </li>
             <li>
                 <a href="https://www.ubuea.cm" target="_blank">
-                    <img src="{{ asset('images/ublogo.jpg') }}" alt="partners" class="img-thumbnail img-fluid"><br><br>
-                    <h6>UNIVERSITY<br>OF<br>BUEA</h6>
+                    <img src="{{ asset('images/ublogo.jpg') }}" alt="partners"
+                        class="img-thumbnail img-fluid mb-2 img-fluid">
+                    <h6 class="text-center font-weight-bold text-primary text-uppercase">University of Buea</h6>
                 </a>
             </li>
             <li>
                 <a href="https://www.univ-dschang.org" target="_blank">
-                    <img src="{{ asset('images/udslogo.png') }}" alt="partners" class="img-thumbnail img-fluid"><br><br>
-                    <h6>UNIVERSITY<br>OF<br>DSCHANG</h6>
+                    <img src="{{ asset('images/udslogo.png') }}" alt="partners"
+                        class="img-thumbnail img-fluid mb-2 img-fluid">
+                    <h6 class="text-center font-weight-bold text-primary text-uppercase">University of Dschang</h6>
                 </a>
             </li>
             <li>
                 <a href="http://www.univ-maroua.cm/en" target="_blank">
-                    <img src="{{ asset('images/umlogo.png') }}" alt="partners" class="img-thumbnail img-fluid"><br><br>
-                    <h6>UNIVERSITY<br>OF<br>MAROUA</h6>
+                    <img src="{{ asset('images/umlogo.png') }}" alt="partners"
+                        class="img-thumbnail img-fluid mb-2 img-fluid">
+                    <h6 class="text-center font-weight-bold text-primary text-uppercase">University of Maroua</h6>
                 </a>
             </li>
             <li>
                 <a href="http://www.univ-douala.cm" target="_blank">
-                    <img src="{{ asset('images/udlogo.jpg') }}" alt="partners" class="img-thumbnail img-fluid"><br><br>
-                    <h6>UNIVERSITY<br>OF<br>DOUALA</h6>
+                    <img src="{{ asset('images/udlogo.jpg') }}" alt="partners"
+                        class="img-thumbnail img-fluid mb-2 img-fluid">
+                    <h6 class="text-center font-weight-bold text-primary text-uppercase">University of Douala</h6>
                 </a>
             </li>
             <li>
                 <a href="https://www.univ-yaounde2.org" target="_blank">
-                    <img src="{{ asset('images/uy2logo.png') }}" alt="partners" class="img-thumbnail img-fluid"><br><br>
-                    <h6>UNIVERSITY<br>OF<br>YAOUNDE 2</h6>
+                    <img src="{{ asset('images/uy2logo.png') }}" alt="partners"
+                        class="img-thumbnail img-fluid mb-2 img-fluid">
+                    <h6 class="text-center font-weight-bold text-primary text-uppercase">University of Yaounde 2</h6>
                 </a>
             </li>
         </ul>

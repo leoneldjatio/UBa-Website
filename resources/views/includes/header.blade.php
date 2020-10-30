@@ -28,16 +28,17 @@
         </div>
     </div>
 </div>
-<nav id="navbar" class="py-4">
+
+<nav id="navbar" class="py-4 d-none d-lg-block">
     <div class="container" role="navigation">
         <ul class="nav nav-pills ml-0 d-flex flex-column flex-md-row">
-            <li class="nav-item">
+            <li class="nav-item mb-2 d-inline-flex mb-lg-0">
                 <a class="nav-link {{ Config::get('app.page') === '/' ? 'active' : '' }} px-4" href="/">Home</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mb-2 d-inline-flex mb-lg-0">
                 <a class="nav-link {{ Config::get('app.page') === 'about' ? 'active' : '' }}" href="/about">About us</a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item mb-2 d-inline-flex mb-lg-0 dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     Schools & Faculties
@@ -61,7 +62,7 @@
                         Institute</a>
                 </div>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item mb-2 d-inline-flex mb-lg-0 dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     Admissions
@@ -78,16 +79,86 @@
                         href="{{ asset('documents/Returning-students-fee-payment-procedure-UBa-2019.pdf') }}"
                         target="_blank">Online Registration Procedure - Returning Students</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mb-2 d-inline-flex mb-lg-0">
                 <a class="nav-link {{ Config::get('app.page') === 'blog' ? 'active' : '' }}" href="/blog">Blog</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mb-2 d-inline-flex mb-lg-0">
                 <a class="nav-link" href="https://www.ubastudent.online" target="_blank">UBa Student</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mb-2 d-inline-flex mb-lg-0">
                 <a class="nav-link {{ Config::get('app.page') === 'contact' ? 'active' : '' }}" href="/contact">Contact
                     us</a>
             </li>
         </ul>
     </div>
 </nav>
+
+
+{{-- mobile navigation bar --}}
+<nav class="mobile-nav d-lg-none">
+    <ul class="nav nav-pills d-flex flew-column">
+        <li class="nav-item mb-2 d-inline-flex mb-lg-0">
+            <a class="nav-link {{ Config::get('app.page') === '/' ? 'active' : '' }} px-4" href="/">Home</a>
+        </li>
+        <li class="nav-item mb-2 d-inline-flex mb-lg-0">
+            <a class="nav-link {{ Config::get('app.page') === 'about' ? 'active' : '' }}" href="/about">About us</a>
+        </li>
+        <li class="nav-item mb-2 d-inline-flex mb-lg-0 dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Schools & Faculties
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">College of Technology</a>
+                <a class="dropdown-item" href="#">Faculty of Arts</a>
+                <a class="dropdown-item" href="#">Faculty of Economics and Management Sciences</a>
+                <a class="dropdown-item" href="#">Faculty of Education</a>
+                <a class="dropdown-item" href="#">Faculty of Health Sciences</a>
+                <a class="dropdown-item" href="#">Faculty of Law and Political Science</a>
+                <a class="dropdown-item" href="#">Faculty of Science</a>
+                <a class="dropdown-item" href="#">Higher Institute of Commerce and Management</a>
+                <a class="dropdown-item" href="#">Higher Institute of Transport and Logistics</a>
+                <a class="dropdown-item" href="http://httcbambili.net/" target="_blank">Higher Teacher Training
+                    College </a>
+                <a class="dropdown-item" href="htttcuniba-edu.cm" target="_blank">Higher Technical Teacher Training
+                    College</a>
+                <a class="dropdown-item" href="#">HND/HPD/B.TECH ACADEMIC ORGAN</a>
+                <a class="dropdown-item" href="https://nahpi.cm" target="_blank">National Higher Polytechnic
+                    Institute</a>
+            </div>
+        </li>
+        <li class="nav-item mb-2 d-inline-flex mb-lg-0 dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Admissions
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="https://www.ubastudent.online/admission" target="_blank">Apply for
+                    Admission</a>
+                <a class="dropdown-item" href="https://www.ubastudent.online/find_me" target="_blank">Check
+                    Admission List</a>
+                <a class="dropdown-item"
+                    href="{{ asset('documents/Fresh-students-fee-payment-procedure-UBa-2019.pdf') }}"
+                    target="_blank">Online registration Procedure - FRESHMEN</a>
+                <a class="dropdown-item"
+                    href="{{ asset('documents/Returning-students-fee-payment-procedure-UBa-2019.pdf') }}"
+                    target="_blank">Online Registration Procedure - Returning Students</a>
+        </li>
+        <li class="nav-item mb-2 d-inline-flex mb-lg-0">
+            <a class="nav-link {{ Config::get('app.page') === 'blog' ? 'active' : '' }}" href="/blog">Blog</a>
+        </li>
+        <li class="nav-item mb-2 d-inline-flex mb-lg-0">
+            <a class="nav-link" href="https://www.ubastudent.online" target="_blank">UBa Student</a>
+        </li>
+        <li class="nav-item mb-2 d-inline-flex mb-lg-0">
+            <a class="nav-link {{ Config::get('app.page') === 'contact' ? 'active' : '' }}" href="/contact">Contact
+                us</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="burger shadow d-inline-flex p-2 rounded position-fixed" style="top: 1rem; right: 1rem; cursor: pointer">
+    <span class="material-icons">
+        menu
+    </span>
+</div>

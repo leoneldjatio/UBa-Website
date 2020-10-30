@@ -4,7 +4,7 @@
 @section('content')
     <div class="container d-flex align-items-start">
         <!-- main content -->
-        <div class="shadow-custom white_round mr-5 w-75 mt-4">
+        <div class="shadow-custom white_round mr-lg-5 mt-4">
             <main>
                 <h2>About us</h2>
                 <p>
@@ -207,15 +207,15 @@
             </main>
         </div>
         <!-- side bar -->
-        <aside id="about-nav" class="stick w-25 mt-4">
-            <ul class="list-group white_round shadow-custom p-0">
-                <li class="list-group-item b-o">
-                    <h5 class="text-primary">Quick links</h5>
+        <aside id="about-nav" class="d-none d-lg-block stick mt-4">
+            <ul class="list-group white_round shadow-custom p-0" style="width: 15rem">
+                <li class="list-group-item border-0 bg-primary">
+                    <h5 class="text-white">Quick links</h5>
                 </li>
-                <a class="list-group-item list-group-item-info" href="#founding">Founding</a>
-                <a class="list-group-item" href="#mission">Mission</a>
-                <a class="list-group-item" href="#values">Values</a>
-                <a class="list-group-item" href="#history">History</a>
+                <a class="list-group-item border-0 list-group-item-info" href="#founding">Founding</a>
+                <a class="list-group-item border-0" href="#mission">Mission</a>
+                <a class="list-group-item border-0" href="#values">Values</a>
+                <a class="list-group-item border-0" href="#history">History</a>
         </aside>
     </div>
 @endsection

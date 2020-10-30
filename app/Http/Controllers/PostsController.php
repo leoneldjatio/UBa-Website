@@ -22,7 +22,7 @@ class PostsController extends Controller
     public function index()
     {
         Config::set('app.page', 'blog');
-        dd(Config::get('app.page'));
+        // dd(Config::get('app.page'));
         $posts = Post::orderBy('created_at', 'desc')->paginate(3);
         // you can chain things and then add ->get() to the end;
         // Pagination is done by replacing ->get() with paginate

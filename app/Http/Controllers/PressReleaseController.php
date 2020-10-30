@@ -43,7 +43,7 @@ class PressReleaseController extends Controller
 
         PressRelease::create($data);
         session()->flash('success', 'Your press release has been created successfully');
-        return redirect()->route('home');
+        return redirect()->route('admin');
     }
 
     /**
@@ -65,7 +65,7 @@ class PressReleaseController extends Controller
      */
     public function edit(PressRelease $pressRelease)
     {
-        return view('press.edit', compact($pressRelease));
+        return view('press.edit')->withPressRelease($pressRelease);
     }
 
     /**
@@ -89,7 +89,7 @@ class PressReleaseController extends Controller
         $pressRelease->update($data);
 
         session()->flash('success', 'Press release has been updated successfully');
-        return redirect()->route('home');
+        return redirect()->route('admin');
     }
 
     /**
@@ -104,6 +104,6 @@ class PressReleaseController extends Controller
         $pressRelease->delete();
 
         session()->flash('success', 'Press release has deleted updated successfully');
-        return redirect()->route('home');
+        return redirect()->route('admin');
     }
 }

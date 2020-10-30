@@ -54,3 +54,13 @@ Route::delete('/photo/{id}', 'PhotoController@destroy');
 
 // press release route
 Route::resource('press', 'PressReleaseController')->except("show");
+
+// use App\User;
+
+// Route::get('new-user', function () {
+//     return User::create([
+//         'name' => 'testuser',
+//         'email' => 'user@test.com',
+//         'password' => Hash::make('testuser'),
+//     ]);
+// });

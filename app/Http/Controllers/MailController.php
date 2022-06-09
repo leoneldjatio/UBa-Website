@@ -28,7 +28,7 @@ class MailController extends Controller
         Mail::send('dynamic_email_template',$data,function($emailDetails) use($data){
 
             $emailDetails->from($data['email']);
-            $emailDetails->to('');
+            $emailDetails->to('leonelfoma@gmail.com');
             $emailDetails->subject($data['subject']);
         });
         Session::flash('Success','Thanks for contacting us!');

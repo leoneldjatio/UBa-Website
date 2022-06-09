@@ -11,6 +11,22 @@
 |
 */
 
+
+// create default user in the db
+
+use App\User;
+use Illuminate\Support\Facades\Hash;
+
+// Route::get('/create-admin', function () {
+//     User::create([
+//         'name' => "admin", // default username
+//         'email' => "admin@test.com", // default mail
+//         'password' => Hash::make('password'), // default password
+//     ]);
+
+//     return redirect()->route('login');
+// });
+
 Route::resource('posts', 'PostsController');
 
 Route::resource('gallery', 'GalleryController');
@@ -32,13 +48,14 @@ Route::get('/photos/{id}', 'PagesController@photoShow');
 
 Route::get('logout', 'Auth\LoginController@logout');
 
-Route::get('/admin', 'PostsController@index');
+Route::get('/admin', 'PostsController@index')->name('admin');
 //Route::post('/blogCreate2','AdminController@BlogPost');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/mail', 'MailController@send');
+Route::post('/sendemail/send', 'SendEmailController@send');
 
 Route::get('/album', 'AlbumController@showAlbum');
 Route::post('/albumCreate', 'AlbumController@createAlbum');
@@ -54,13 +71,10 @@ Route::delete('/photo/{id}', 'PhotoController@destroy');
 
 // press release route
 Route::resource('press', 'PressReleaseController')->except("show");
+Route::resource('faqs', 'FaqsController')->middleware('auth');
 
-// use App\User;
 
-// Route::get('new-user', function () {
-//     return User::create([
-//         'name' => 'testuser',
-//         'email' => 'user@test.com',
-//         'password' => Hash::make('testuser'),
-//     ]);
-// });
+
+Route::group([], function () {
+    Route::get('admin/faqs', 'AdminController@faqs')->name('admin.faqs');
+});

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Album;
 use App\Photo;
+use App\PressRelease;
 use Illuminate\Support\Facades\Config;
 
 class PagesController extends Controller
@@ -18,7 +19,8 @@ class PagesController extends Controller
 
         $albums = Album::with('photos')->orderBy('created_at', 'desc')->take(6)->get();
         $posts = Post::orderBy('created_at', 'desc')->take(4)->get();
-        return view('home')->with('posts', $posts)->with('albums', $albums);
+        $pressReleases = PressRelease::orderBy('created_at', 'desc')->get();
+        return view('home')->with('posts', $posts)->with('albums', $albums)->with('pressReleases',$pressReleases);
     }
 
     public function blog()

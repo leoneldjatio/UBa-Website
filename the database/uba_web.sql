@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2019 at 01:28 PM
--- Server version: 10.1.39-MariaDB
--- PHP Version: 7.3.5
+-- Generation Time: May 12, 2021 at 12:44 AM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,47 +25,239 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blog_posts`
+-- Table structure for table `albums`
 --
 
-CREATE TABLE `blog_posts` (
-  `blog_id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `subtitle` varchar(255) NOT NULL,
-  `blog_image` varchar(255) NOT NULL,
-  `content` blob NOT NULL,
-  `updated_at` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
-  `created_at` timestamp(6) NOT NULL DEFAULT '0000-00-00 00:00:00.000000'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `albums` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cover_image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `blog_posts`
+-- Table structure for table `faqs`
 --
 
-INSERT INTO `blog_posts` (`blog_id`, `title`, `subtitle`, `blog_image`, `content`, `updated_at`, `created_at`) VALUES
-(1, 'Web(ERP SYSTEMS) and mobile Application developer', 'vvvvvvbv', '/storage/Capture1.PNG', 0x67666766676667666766676667666766, '2019-08-09 01:16:16.000000', '2019-08-09 01:16:16.000000'),
-(2, 'A Comparative Evaluation of Instructional Levels Determined by the Text Reading', 'gmfkgmfklgmnfkgk', '/storage/Capture5.PNG', 0x3c703e67666467676768676866676867686668676668686a666a6868666a66686a686a683c2f703e, '2019-08-09 02:45:37.000000', '2019-08-09 02:45:37.000000'),
-(3, 'Computer Maintenance', 'i am into this a lot', '/storage/Capture6.PNG', 0x3c703e6b6b666b666d6e6b666d6e6b6477666d6b64666d6b77666d77666d776c6a666a696a69686a66686a64666e6a646e6666776a666e776d2c6e6677656e666677656b6e65776d666e652c66652c6e66652c6d6e66652c6e666665776b6b666b666d6e6b666d6e6b6477666d6b64666d6b77666d77666d776c6a666a696a69686a66686a64666e6a646e6666776a666e776d2c6e6677656e666677656b6e65776d666e652c66652c6e66652c6d6e66652c6e666665776b6b666b666d6e6b666d6e6b6477666d6b64666d6b77666d77666d776c6a666a696a69686a66686a64666e6a646e6666776a666e776d2c6e6677656e666677656b6e65776d666e652c66652c6e66652c6d6e66652c6e666665776b6b666b666d6e6b666d6e6b6477666d6b64666d6b77666d77666d776c6a666a696a69686a66686a64666e6a646e6666776a666e776d2c6e6677656e666677656b6e65776d666e652c66652c6e66652c6d6e66652c6e666665776b6b666b666d6e6b666d6e6b6477666d6b64666d6b77666d77666d776c6a666a696a69686a66686a64666e6a646e6666776a666e776d2c6e6677656e666677656b6e65776d666e652c66652c6e66652c6d6e66652c6e666665776b6b666b666d6e6b666d6e6b6477666d6b64666d6b77666d77666d776c6a666a696a69686a66686a64666e6a646e6666776a666e776d2c6e6677656e666677656b6e65776d666e652c66652c6e66652c6d6e66652c6e666665773c2f703e, '2019-08-10 08:44:45.000000', '2019-08-10 08:44:45.000000');
+CREATE TABLE `faqs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `question` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `response` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `galleries`
+--
+
+CREATE TABLE `galleries` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `url` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2019_07_05_111555_create_users_table', 1),
+(2, '2019_09_14_181513_create_posts_table', 1),
+(3, '2019_09_27_141345_create_galleries_table', 1),
+(4, '2020_10_29_215805_create_albums_table', 1),
+(5, '2020_10_29_220356_create_news_table', 1),
+(6, '2020_10_29_220512_create_press_releases_table', 1),
+(7, '2020_10_30_114921_create_faqs_table', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subtitle` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `body` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `press_releases`
+--
+
+CREATE TABLE `press_releases` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'admin@test.com', '$2y$10$ef/2QoHKAtw6J1aXRO.XM.XIPLwpNr7eFRaVruwHcZ7TqzS04Flly', '2021-05-11 17:24:59', '2021-05-11 17:24:59');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `blog_posts`
+-- Indexes for table `albums`
 --
-ALTER TABLE `blog_posts`
-  ADD PRIMARY KEY (`blog_id`);
+ALTER TABLE `albums`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `faqs`
+--
+ALTER TABLE `faqs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `galleries`
+--
+ALTER TABLE `galleries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `press_releases`
+--
+ALTER TABLE `press_releases`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `blog_posts`
+-- AUTO_INCREMENT for table `albums`
 --
-ALTER TABLE `blog_posts`
-  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `albums`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `faqs`
+--
+ALTER TABLE `faqs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `galleries`
+--
+ALTER TABLE `galleries`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `press_releases`
+--
+ALTER TABLE `press_releases`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

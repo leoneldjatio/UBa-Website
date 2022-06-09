@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class PressRelease extends Model
 {
-    protected $fillable = ['title', 'file'];
+    protected $guarded = [];
 }

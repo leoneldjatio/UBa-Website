@@ -11,9 +11,9 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('summernote/summernote-bs4.css') }}">
 </head>
 
 <body>
@@ -42,7 +42,13 @@
         CKEDITOR.replace('post-body');
 
     </script>
+
     <script src="{{ asset('js/styles.js') }}"></script>
+    {{-- <script src="{{ asset('summernote/summernote-bs4.js') }}"></script>
+    --}}
+
+    {{-- show other scripts specific to this page --}}
+    @yield('scripts')
 </body>
 
 </html>

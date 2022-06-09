@@ -6,7 +6,7 @@
     <div class="card">
         <div class="card-header">New Press release</div>
         <div class="card-body">
-            <form action="{{ route('press.update', $pressRelease->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('press.update', $press->id) }}" method="POST" enctype="multipart/form-data">
 
                 @csrf
                 @method('PATCH')

@@ -2,19 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\BlogPost;
-use App\Http\Requests\BlogRequest;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\DB;
+use App\Faqs;
 
 class AdminController extends Controller
 {
-    // public function index() {
-    //     $blogPosts = DB::table('blog_posts')->paginate();
-    //     $number = 1;
-
-    //     return view('admin/adminIndex',compact('blogPosts','number'));
-    //  }
-
+    /**
+     * Link to the faqs page on the admin section
+     */
+    public function faqs()
+    {
+        return view('admin.faqs')->withFaqs(Faqs::latest()->get());
+    }
 }

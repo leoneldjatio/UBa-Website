@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Storage;
 
 class PressReleaseController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -41,9 +46,19 @@ class PressReleaseController extends Controller
             'file' => 'required|file|max:2000',
         ]);
 
-        PressRelease::create($data);
+        if($request->file('file')) {
+            $file = $request->file('file');
+            $originalname = $file->getClientOriginalName();
+            $path = $file->move('documents', $originalname);
+
+
+            $docs = new PressRelease();
+            $docs->title = $request->input('title');
+            $docs->file = $path;
+            $docs->save();
+        }
         session()->flash('success', 'Your press release has been created successfully');
-        return redirect()->route('admin');
+        return redirect('/press');
     }
 
     /**
@@ -54,7 +69,8 @@ class PressReleaseController extends Controller
      */
     public function show(PressRelease $pressRelease)
     {
-        //
+        
+        //return view("home")->with('newReleases', $newRelease);
     }
 
     /**
@@ -63,9 +79,10 @@ class PressReleaseController extends Controller
      * @param  \App\PressRelease  $pressRelease
      * @return \Illuminate\Http\Response
      */
-    public function edit(PressRelease $pressRelease)
+    public function edit(int $pressId)
     {
-        return view('press.edit')->withPressRelease($pressRelease);
+        $pressRelease = PressRelease::findOrFail($pressId);
+        return view('press.edit')->withPress($pressRelease);
     }
 
     /**
@@ -75,22 +92,30 @@ class PressReleaseController extends Controller
      * @param  \App\PressRelease  $pressRelease
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PressRelease $pressRelease)
+    public function update(Request $request, $id)
     {
-        $data = $request->validate([
+
+        $this->validate($request,[
             'title' => 'required|string',
-            'file' => 'nullable|file|max:2000',
+            'file' => 'required|file|max:2000',
         ]);
-        if ($request->hasFile('file')) {
-            Storage::delete($pressRelease->file);
-            $data['file'] = $request->file('file')->move('press');
+        if($request->file('file')) {
+            $file = $request->file('file');
+            $originalname = $file->getClientOriginalName();
+            $path = $file->move('documents', $originalname);
+
+
+            $docs = PressRelease::find($id);
+            $docs->title = $request->input('title');
+            $docs->file = $path;
+            $docs->save();
         }
 
-        $pressRelease->update($data);
 
         session()->flash('success', 'Press release has been updated successfully');
-        return redirect()->route('admin');
+        return redirect('/press');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -98,12 +123,13 @@ class PressReleaseController extends Controller
      * @param  \App\PressRelease  $pressRelease
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PressRelease $pressRelease)
+    public function destroy(int $pressId)
     {
+        $pressRelease = PressRelease::findOrFail($pressId);
         Storage::delete($pressRelease->file);
         $pressRelease->delete();
 
         session()->flash('success', 'Press release has deleted updated successfully');
-        return redirect()->route('admin');
+        return redirect()->route('press.index');
     }
 }

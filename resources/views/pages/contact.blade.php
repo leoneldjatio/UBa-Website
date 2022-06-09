@@ -27,7 +27,7 @@
             </div>
             <div class="col-md-6">
                 <h2 class="text-primary mb-4 font-weight-bold">Quick Inquiry</h2>
-                <form action="admin/contact" method="post">
+                <form action="#" method="">
                     <div class="form-group">
                         <label for="name" class="font-weight-bold">Enter your name</label>
                         <input type="text" class="form-control py-3 bg-light" name="name" placeholder="Your name" required>
